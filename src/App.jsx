@@ -8,7 +8,7 @@ function App() {
 
   const BASE_URL = "https://exambackend-wabs.onrender.com";
 
-  // 🟦 Fetch all books
+
   const fetchBooks = async () => {
     try {
       const res = await fetch(`${BASE_URL}/books`);
@@ -16,11 +16,11 @@ function App() {
       if (result.success) setBooks(result.data);
       else setBooks([]);
     } catch (err) {
-      console.error("❌ Error fetching books:", err);
+      console.error(" Error fetching books:", err);
     }
   };
 
-  // 🟩 Add new book
+
   const onSubmit = async (data) => {
     try {
       const res = await fetch(`${BASE_URL}/addbook`, {
@@ -31,19 +31,19 @@ function App() {
 
       const result = await res.json();
       if (result.success) {
-        setMessage("✅ Book added successfully!");
-        fetchBooks(); // Refresh list
+        setMessage(" Book added successfully!");
+        fetchBooks(); 
         reset();
       } else {
-        setMessage("⚠️ Failed to add book");
+        setMessage(" Failed to add book");
       }
     } catch (err) {
-      console.error("❌ Backend not reachable:", err);
-      setMessage("⚠️ Backend not available");
+      console.error(" Backend not reachable:", err);
+      setMessage("Backend not available");
     }
   };
 
-  // 🟥 Delete a book
+
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this book?")) return;
 
@@ -54,14 +54,14 @@ function App() {
       const result = await res.json();
 
       if (result.success) {
-        setMessage("🗑️ Book deleted successfully!");
+        setMessage(" Book deleted successfully!");
         fetchBooks();
       } else {
-        setMessage("⚠️ Failed to delete book");
+        setMessage(" Failed to delete book");
       }
     } catch (err) {
-      console.error("❌ Error deleting book:", err);
-      setMessage("⚠️ Backend not available");
+      console.error(" Error deleting book:", err);
+      setMessage("Backend not available");
     }
   };
 
