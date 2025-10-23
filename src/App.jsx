@@ -6,7 +6,7 @@ function App() {
   const [books, setBooks] = useState([]);
   const [message, setMessage] = useState("");
 
-  const BASE_URL = "http://localhost:5000";
+  const BASE_URL = "https://exambackend-wabs.onrender.com";
 
   // 🟦 Fetch all books
   const fetchBooks = async () => {
